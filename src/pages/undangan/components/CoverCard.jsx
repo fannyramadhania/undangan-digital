@@ -29,7 +29,7 @@ export default function CoverCard({ guestName, onOpen }) {
         </h1>
 
         <p className="mx-auto mt-3 max-w-[15rem] text-sm leading-relaxed text-gray-600 animate-pop-in delay-400">
-          Meriahkan HUT Kemerdekaan RI ke-81 bareng warga sekampung
+          Meriahkan HUT Kemerdekaan RI ke-81 bareng warga
         </p>
 
         {/* Tanggal bergaya stiker miring */}

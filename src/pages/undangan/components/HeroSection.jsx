@@ -25,8 +25,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-white/90">
-          Satu hari penuh keseruan, tawa, dan rebutan piala di lapangan kampung
-          kita
+          Satu hari penuh keseruan dan tawa
         </p>
 
         {/* Anak melompat kegirangan di pojok, sebagian tertutup gelombang */}

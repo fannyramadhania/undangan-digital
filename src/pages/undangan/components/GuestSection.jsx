@@ -19,8 +19,9 @@ export default function GuestSection({ guestName }) {
         </h2>
 
         <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-gray-600">
-          Kamu diundang buat ikut serta dan memeriahkan Lomba 17-an di kampung
-          kita. Ajak keluarga, siapkan tenaga, dan jangan lupa senyumnya!
+          Kamu diundang buat ikut serta dan memeriahkan Lomba 17-an di
+          lingkungan RT 010/05. Ajak keluarga, siapkan tenaga, dan jangan lupa
+          senyumnya!
         </p>
       </div>
     </div>
