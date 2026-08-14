@@ -70,6 +70,53 @@
   }
 }
 
+/* Goyangan kecil supaya elemen terasa hidup, bukan kaku */
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+
+/* Melambai seperti bendera tertiup angin */
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-4deg) translateY(0);
+  }
+  50% {
+    transform: rotate(3deg) translateY(-6px);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(14px);
+  }
+  60% {
+    transform: scale(1.03) translateY(-3px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Berlari kecil di tempat */
+@keyframes jog {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(1.5deg);
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -98,6 +145,28 @@
   animation: scale-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.animate-wiggle {
+  animation: wiggle 2.8s ease-in-out infinite;
+}
+
+.animate-sway {
+  animation: sway 4s ease-in-out infinite;
+}
+
+.animate-pop-in {
+  animation: pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.animate-jog {
+  animation: jog 1.9s ease-in-out infinite;
+}
+
+/* Animasi masuk selalu mulai dari kondisi tersembunyi supaya delay-nya terlihat */
+.animate-pop-in,
+.animate-slide-in-down {
+  animation-fill-mode: both;
+}
+
 .delay-100 {
   animation-delay: 0.1s;
 }
@@ -108,4 +177,34 @@
 
 .delay-300 {
   animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+/* Hormati preferensi pengguna yang tidak nyaman dengan gerakan */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-rotate-slow,
+  .animate-pulse-glow,
+  .animate-bounce-gentle,
+  .animate-shimmer,
+  .animate-wiggle,
+  .animate-sway,
+  .animate-jog {
+    animation: none;
+  }
 }

@@ -1,81 +1,86 @@
 import { CalendarDays, Clock3, MapPin } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+
+const DETAILS = [
+  {
+    icon: CalendarDays,
+    label: "Tanggal",
+    value: "Sabtu, 15 Agustus 2026",
+    note: null,
+    tilt: "-rotate-1",
+    iconClass: "bg-red-100 text-red-600",
+  },
+  {
+    icon: Clock3,
+    label: "Waktu",
+    value: "Sesi Pagi 07.00 & Sesi Sore 15.30",
+    note: "Keduanya berlangsung sampai selesai. Peserta harap hadir 15 menit sebelum lomba dimulai.",
+    tilt: "rotate-1",
+    iconClass: "bg-bambu/20 text-bambu",
+  },
+  {
+    icon: MapPin,
+    label: "Lokasi",
+    value: "Lapangan Volly Malaka Sari",
+    note: "Jl. Delima V RT.10/RW.5, Malaka Sari, Duren Sawit, Jakarta Timur 13470",
+    tilt: "-rotate-1",
+    iconClass: "bg-langit/15 text-langit",
+    action: {
+      text: "Lihat Lokasi",
+      href: "https://maps.google.com/?q=Lapangan+Volly+Malaka+Sari+Duren+Sawit",
+    },
+  },
+
+];
 
 export default function EventDetails() {
   return (
-    <section>
-      <div className="mb-5 text-center">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-600">
-          Save The Date
-        </p>
+    <section className="px-5">
+      <SectionHeading label="Catat tanggalnya" title="Detail Lomba" />
 
-        <h3 className="mt-2 text-2xl font-bold tracking-tight text-gray-900">
-          Detail Acara
-        </h3>
-      </div>
+      <div className="space-y-4">
+        {DETAILS.map(
+          ({ icon: Icon, label, value, note, tilt, iconClass, action }) => (
+            <div
+              key={label}
+              className={`kartu ${tilt} transition-transform duration-300 hover:rotate-0 hover:-translate-y-0.5`}
+            >
+              <div className="flex items-start gap-4">
+                <div
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${iconClass}`}
+                >
+                  <Icon size={20} strokeWidth={2} />
+                </div>
 
-      {/* Date & Time */}
-      <div className="overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm">
-   
-        <div className="border-t border-gray-100 p-5 sm:p-6">
-          <div className="flex items-start gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-red-50 text-red-600">
-              <CalendarDays size={19} strokeWidth={1.8} />
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs text-gray-400">{label}</p>
+
+                  <h4 className="mt-0.5 font-display text-base font-semibold text-gray-800">
+                    {value}
+                  </h4>
+
+                  {note && (
+                    <p className="mt-1.5 text-xs leading-relaxed text-gray-500">
+                      {note}
+                    </p>
+                  )}
+
+                  {action && (
+                    <a
+                      href={action.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-red-50 px-4 py-2 font-display text-xs font-semibold text-merah-600 transition-colors hover:bg-red-100"
+                    >
+                      <MapPin size={13} strokeWidth={2.2} />
+                      {action.text}
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
-
-            <div className="min-w-0 flex-1">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-400">
-                Tanggal
-              </p>
-
-              <h4 className="mt-1 font-bold text-gray-900">Senin , 17 Agustus 2026</h4>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-100 p-5 sm:p-6">
-          <div className="flex items-start gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-red-50 text-red-600">
-              <Clock3 size={19} strokeWidth={1.8} />
-            </div>
-
-            <div className="min-w-0 flex-1">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-400">
-                Waktu
-              </p>
-
-              <h4 className="mt-1 font-bold text-gray-900"> 19:30 — 22:00</h4>
-            </div>
-          </div>
-        </div>
-        {/* Location */}
-        <div className="border-t border-gray-100 p-5 sm:p-6">
-          <div className="flex items-start gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-red-50 text-red-600">
-              <MapPin size={20} strokeWidth={1.8} />
-            </div>
-
-            <div className="min-w-0 flex-1">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-400">
-                Lokasi
-              </p>
-
-              <h4 className="mt-1 font-bold text-gray-900">Lapangan Volly</h4>
-
-              <p className="mt-1 text-xs leading-relaxed text-gray-500">
-                Jl. Delima V RT.10/RW.5, Malaka Sari, Kec. Duren Sawit, Kota
-                Jakarta Timur, DKI Jakarta 13470
-              </p>
-
-              <button
-                type="button"
-                className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-red-600 transition-colors hover:text-red-700"
-              >
-                <MapPin size={14} strokeWidth={2} />
-                Lihat Lokasi
-              </button>
-            </div>
-          </div>
-        </div>
+          ),
+        )}
       </div>
     </section>
   );

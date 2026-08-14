@@ -1,63 +1,55 @@
-import garudaPancasila from "../../../assets/Untitled_design__1_-removebg-preview.png";
-import ribbon from "../../../assets/ribbon.png";
-import ribbon2 from "../../../assets/ribbon2.png";
-import Decor from "./Decor";
+import anakLompat from "../../../assets/anak-lompat.png";
+import Confetti from "./Confetti";
+import Gapura from "./Gapura";
 
 export default function HeroSection() {
   return (
-    <div className="relative overflow-hidden px-6 pb-10 pt-10 text-center sm:px-10">
-      {/* Decorative circles */}
-      <div className="pointer-events-none absolute -left-16 -top-16 h-40 w-40 rounded-full bg-red-50" />
-      <div className="pointer-events-none absolute -right-16 top-20 h-32 w-32 rounded-full bg-red-50" />
+    <div className="relative overflow-hidden bg-gradient-to-b from-merah-500 to-merah-600 px-6 pb-16 pt-8 text-center sm:px-10">
+      <Confetti className="opacity-60" />
 
-      {/* Pita sudut */}
-      <Decor
-        src={ribbon}
-        className="-right-8 -top-6 w-24 rotate-12 opacity-40 sm:-right-6 sm:w-28"
-      />
-      <Decor
-        src={ribbon}
-        flip
-        className="-bottom-10 -left-10 w-24 -rotate-12 opacity-30 sm:w-28"
-      />
+      {/* Lingkaran lembut sebagai latar, menggantikan blok warna kaku */}
+      <div className="pointer-events-none absolute -left-16 -top-20 h-48 w-48 rounded-full bg-white/10" />
+      <div className="pointer-events-none absolute -right-20 top-10 h-40 w-40 rounded-full bg-white/10" />
 
       <div className="relative">
-        <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.35em] text-red-600">
-          Undangan Spesial
+        <p className="inline-block -rotate-2 rounded-full bg-white/20 px-4 py-1.5 font-display text-xs font-semibold text-white backdrop-blur-sm">
+          Undangan Lomba Agustusan
         </p>
 
+        <Gapura className="mx-auto mt-4 w-52 drop-shadow-lg animate-sway sm:w-60" />
+
+        <h1 className="mt-3 font-display text-4xl font-bold leading-[0.95] text-white drop-shadow-sm sm:text-5xl">
+          <span className="block -rotate-1">Lomba 17-an</span>
+
+          <span className="mt-1 block rotate-1 text-krem-100">HUT RI Ke-81</span>
+        </h1>
+
+        <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-white/90">
+          Satu hari penuh keseruan, tawa, dan rebutan piala di lapangan kampung
+          kita
+        </p>
+
+        {/* Anak melompat kegirangan di pojok, sebagian tertutup gelombang */}
         <img
-          src={garudaPancasila}
-          alt="Garuda Pancasila"
-          className="mx-auto mb-5 h-16 w-16 object-contain animate-float"
+          src={anakLompat}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-10 right-0 w-14 rotate-6 object-contain animate-bounce-gentle sm:w-16"
         />
-
-        <p className="text-sm font-medium tracking-[0.3em] text-gray-500">
-          DIRGAHAYU
-        </p>
-
-        {/* Angka 80 di atas latar pita */}
-        <div className="relative mt-2">
-          <Decor
-            src={ribbon2}
-            className="left-1/2 top-1/2 w-56 -translate-x-1/2 -translate-y-1/2 opacity-25 sm:w-64"
-          />
-
-          <h1 className="relative text-5xl font-black tracking-tight text-red-700 drop-shadow-sm sm:text-6xl">
-            81
-          </h1>
-        </div>
-
-        <p className="mt-1 text-xs font-bold uppercase tracking-[0.3em] text-gray-500">
-          Republik Indonesia
-        </p>
-
-        <div className="mx-auto mt-6 flex items-center justify-center gap-3">
-          <span className="h-px w-12 bg-red-200" />
-          <span className="h-2 w-2 rotate-45 bg-red-600" />
-          <span className="h-px w-12 bg-red-200" />
-        </div>
       </div>
+
+      {/* Tepi bawah bergelombang supaya peralihannya luwes */}
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 500 60"
+        preserveAspectRatio="none"
+        className="pointer-events-none absolute inset-x-0 -bottom-px h-10 w-full text-krem-50"
+      >
+        <path
+          fill="currentColor"
+          d="M0,30 C90,70 160,0 250,25 C340,50 410,10 500,32 L500,60 L0,60 Z"
+        />
+      </svg>
     </div>
   );
 }

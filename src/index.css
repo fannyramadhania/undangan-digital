@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-gray-700 antialiased;
+  }
+}
+
+@layer components {
+  /* Label kecil bergaya stiker — pengganti heading kaku ber-tracking lebar */
+  .sticker-label {
+    @apply inline-block rounded-full bg-red-100 px-4 py-1.5 font-display text-xs font-semibold text-merah-700;
+  }
+
+  /* Kartu utama: sudut membulat besar + garis tepi lembut */
+  .kartu {
+    @apply rounded-[2rem] border-2 border-krem-200 bg-white p-5 shadow-[0_12px_30px_-18px_rgba(180,35,24,0.45)];
+  }
+}

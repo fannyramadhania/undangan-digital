@@ -22,10 +22,21 @@ export default function Undangan() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-red-600 via-red-400 to-red-100 p-4 sm:p-6 flex items-center justify-center">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-krem-100 p-4 sm:p-6">
+      {/* Latar bermotif titik lembut, menggantikan gradasi merah yang berat */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(217,45,32,0.35) 1.5px, transparent 1.5px)",
+          backgroundSize: "22px 22px",
+        }}
+      />
+
       <audio volume={0.3} ref={audioRef} src={backsound} loop preload="auto" />
 
-      <div className="w-full max-w-sm">
+      <div className={`relative w-full ${isOpened ? "max-w-xl" : "max-w-sm"}`}>
         {!isOpened ? (
           <CoverCard guestName={guestName} onOpen={handleOpen} />
         ) : (
